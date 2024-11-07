@@ -19,6 +19,8 @@
 # get_duration(playlist: Iterable, n: int) -> Any
 
 import random
+from datetime import timedelta
+
 playlist_d = [
     ("The Flute Tune", "Voodoo People", "Galvanize", "Miami Disco", "Komarovo", "Wild Frontier", "Check It Out", "Seasons", "These Things Will Come To Be"),
     (5.23, 5.07, 7.34, 4.31, 2.26, 4.28, 2.09, 4.25, 4.56),
@@ -40,3 +42,22 @@ def get_duration(playlist):
     return playlist.items()
 merge_playlist = list(zip(playlist_d[0], playlist_d[1]))
 random.shuffle(merge_playlist)
+
+def get_duration_string(playlist, n):
+    #разделияем строку на строки и фильтруем пустые строки
+    lines = [line.strip() for line in playlist.strip().split('\n') if line.strip()]
+    #список длительностит песен
+    song_durations = []
+    for line in lines:
+        try:
+            #извлекаем длительнось песни в конце каждой стр
+            duration = float(line.split()[-1])
+            song_durations.append(duration)
+        except ValueError:
+            #если длительность не распознана - пропускаем
+            continue
+    #случайным образом выбираем n песен
+    chosen_songs_indices = random.sample(range(len(song_durations)), n)
+    #подсчет общ времени
+    total_duration = sum(song_durations[i] for i in chosen_songs_indices)
+    return total_duration
