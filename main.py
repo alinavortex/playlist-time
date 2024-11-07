@@ -18,6 +18,7 @@
 # Но результат задачи можно получить вызвав одну функцию!
 # get_duration(playlist: Iterable, n: int) -> Any
 
+import random
 playlist_d = [
     ("The Flute Tune", "Voodoo People", "Galvanize", "Miami Disco", "Komarovo", "Wild Frontier", "Check It Out", "Seasons", "These Things Will Come To Be"),
     (5.23, 5.07, 7.34, 4.31, 2.26, 4.28, 2.09, 4.25, 4.56),
@@ -35,3 +36,7 @@ Chill Bill Lofi 2.05
 The Perfect Girl 1.48
 Resonance 3.32
 """
+def get_duration(playlist):
+    return playlist.items()
+merge_playlist = list(zip(playlist_d[0], playlist_d[1]))
+random.shuffle(merge_playlist)
