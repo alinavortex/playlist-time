@@ -43,7 +43,7 @@ def get_duration(playlist):
 merge_playlist = list(zip(playlist_d[0], playlist_d[1]))
 random.shuffle(merge_playlist)
 
-def get_duration_string(playlist, n):
+def get_playlist_duration_string(playlist, n):
     #разделияем строку на строки и фильтруем пустые строки
     lines = [line.strip() for line in playlist.strip().split('\n') if line.strip()]
     #список длительностит песен
@@ -61,3 +61,21 @@ def get_duration_string(playlist, n):
     #подсчет общ времени
     total_duration = sum(song_durations[i] for i in chosen_songs_indices)
     return total_duration
+
+#объединяем плейлисты
+def get_duration(playlist, n)
+    if isinstance(playlist, tuple):
+        #плейлист кортеж
+        total_duration = get_playlist_duration_tuple(playlist_d, n)
+    elif isinstance(playlist_d, str):
+        #плейлист многострочный
+        total_duration = get_playlist_duration_string(playlist_e, n)
+    else:
+        raise TypeError("Неподдерживаемый формат плейлиста")
+    
+    #преобразуем время в объект timedelta
+    total_duration_timedelta = timedelta(minutes=total_duration)
+
+    #возвращаем результат как объект timedelta
+    return total_duration_timedelta
+
