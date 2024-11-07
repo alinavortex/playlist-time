@@ -63,7 +63,7 @@ def get_playlist_duration_string(playlist, n):
     return total_duration
 
 #объединяем плейлисты
-def get_duration(playlist, n)
+def get_duration(playlist, n):
     if isinstance(playlist, tuple):
         #плейлист кортеж
         total_duration = get_playlist_duration_tuple(playlist_d, n)
