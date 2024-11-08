@@ -78,4 +78,10 @@ The Perfect Girl 1.48
 Resonance 3.32
 """
 
+#print(playlist_d)
+#print(playlist_e)
 
+
+n = 3
+print(get_duration(playlist_d, n))  
+print(get_duration(playlist_e, n)) 
