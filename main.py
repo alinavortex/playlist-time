@@ -35,7 +35,30 @@ def convert_time_str(time_str):
 
     return time_in_float
 
+def get_duration(playlist: Iterable, n: int) -> Any:
+    # Проверяем, какой тип данных передан в playlist
+    if isinstance(playlist, list) and all(isinstance(item, tuple) for item in playlist):
+        songs, durations = playlist
+    elif isinstance(playlist, str):
+        # Это многострочная строка, нужно распарсить
+        lines = playlist.strip().split("\n")
+        songs = [line.rsplit(" ", 1)[0] for line in lines]
+        durations = [convert_time_str(line.rsplit(" ", 1)[1]) for line in lines]
+    else:
+        return "Ошибка плейлиста"
+#        raise ValueError("Ошибка плейлиста")
+    
+    # Выбираем случайные индексы n песен
 
+    random_indices = random.sample(range(len(songs)), n)
+    #random_indices = range(len(songs))
+    print(random_indices)    
+    # Суммируем продолжительность выбранных песен
+    total_duration = sum(durations[i] for i in random_indices)
+
+    #print(total_duration)
+    # Возвращаем общее время в формате: ЧЧ:ММ:СС
+    return str(timedelta(hours=int(total_duration // 60), minutes=int(total_duration % 60), seconds=int((total_duration % 1) * 60)))
 
 playlist_d = [
     ("The Flute Tune", "Voodoo People", "Galvanize", "Miami Disco", "Komarovo", "Wild Frontier", "Check It Out", "Seasons", "These Things Will Come To Be"),
