@@ -22,6 +22,24 @@ import random
 from datetime import timedelta
 from typing import Iterable, Any
 
+playlist_d = [
+    ("The Flute Tune", "Voodoo People", "Galvanize", "Miami Disco", "Komarovo", "Wild Frontier", "Check It Out", "Seasons", "These Things Will Come To Be"),
+    (5.23, 5.07, 7.34, 4.31, 2.26, 4.28, 2.09, 4.25, 4.56),
+]
+
+playlist_e = """
+Sunday 5:09
+Why Does My Heart Feel so Bad? 4.23
+Everlong 3.25
+To Let Myself Go 3:11
+Golden 2.56
+Daisuke 2.41
+Miami 3.31
+Chill Bill Lofi 2.05
+The Perfect Girl 1.48
+Resonance 3.32
+"""
+
 def convert_time_str(time_str):
     # Если время записано с двоеточием, например "5:09"
     if ':' in time_str:
@@ -60,23 +78,9 @@ def get_duration(playlist: Iterable, n: int) -> Any:
     # Возвращаем общее время в формате: ЧЧ:ММ:СС
     return str(timedelta(hours=int(total_duration // 60), minutes=int(total_duration % 60), seconds=int((total_duration % 1) * 60)))
 
-playlist_d = [
-    ("The Flute Tune", "Voodoo People", "Galvanize", "Miami Disco", "Komarovo", "Wild Frontier", "Check It Out", "Seasons", "These Things Will Come To Be"),
-    (5.23, 5.07, 7.34, 4.31, 2.26, 4.28, 2.09, 4.25, 4.56),
-]
 
-playlist_e = """
-Sunday 5:09
-Why Does My Heart Feel so Bad? 4.23
-Everlong 3.25
-To Let Myself Go
-Golden 2.56
-Daisuke 2.41
-Miami 3.31
-Chill Bill Lofi 2.05
-The Perfect Girl 1.48
-Resonance 3.32
-"""
+
+
 
 #print(playlist_d)
 #print(playlist_e)
