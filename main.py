@@ -82,10 +82,4 @@ def get_duration(playlist: Iterable, n: int) -> Any:
 
 
 
-#print(playlist_d)
-#print(playlist_e)
 
-
-n = 3
-print(get_duration(playlist_d, n))  
-print(get_duration(playlist_e, n)) 
